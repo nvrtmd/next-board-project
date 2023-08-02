@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
 
   *:not(input) {
     -webkit-touch-callout: none; // 링크, 이미지 길게 눌렀을 때 나타나는 메뉴 비활성화
-    -webkit-user-select: none; /
+    -webkit-user-select: none; 
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none; 
