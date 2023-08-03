@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
 
-class MyDocument extends Document {
+export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const originalRenderPage = ctx.renderPage;
 
@@ -26,5 +26,3 @@ class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;
