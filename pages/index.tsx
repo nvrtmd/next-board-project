@@ -1,3 +1,3 @@
-export default function WelcomePage() {
+export default function HomePage() {
   return <div>Hello, World!</div>;
 }
