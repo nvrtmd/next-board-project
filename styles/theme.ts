@@ -4,7 +4,9 @@ const colors = {
   white: '#ffffff',
 };
 
-const layouts = {};
+const layouts = {
+  headerHeight: '65px',
+};
 
 const breakpoints = {
   extraLarge: '1440px',
