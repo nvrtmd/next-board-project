@@ -55,6 +55,7 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   transition: 0.2s;
   font-weight: 700;
+  font-size: 1.6rem;
   &:hover {
     color: ${theme.colors.white};
   }
