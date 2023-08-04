@@ -33,12 +33,14 @@ export default memo(PostItem);
 const Wrapper = styled.div`
   border: 3px solid ${theme.colors.primary};
   max-width: 100%;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 5px 5px 10px 0px ${theme.colors.lightGrey};
   -webkit-box-shadow: 5px 5px 10px 0px ${theme.colors.lightGrey};
   -moz-box-shadow: 5px 5px 10px 0px ${theme.colors.lightGrey};
+  display: grid;
+  grid-template-rows: 1fr 2.5fr 2fr 1fr;
   &:hover,
   &:hover > div > div,
   &:hover > div {
