@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import { boardApi } from 'api/board';
 import { Post } from 'global/types';
@@ -5,6 +6,7 @@ import useInfiniteScroll from 'hooks/useInfiniteScroll';
 import PostItem from 'components/posts/PostItem';
 import { useEffect, useRef } from 'react';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
+
 interface LoadingProps {
   isDisplayed?: boolean;
 }
@@ -33,7 +35,9 @@ export default function PostListPage() {
     <Wrapper>
       <PostList>
         {data?.map((post: Post) => (
-          <PostItem data={post} onClick={() => console.log(123)} key={post.post_idx} />
+          <Link href={{ pathname: '/posts/[id]', query: { id: post.post_idx } }}>
+            <PostItem data={post} onClick={() => console.log(123)} key={post.post_idx} />
+          </Link>
         ))}
       </PostList>
       <VisibleCitiesLoading ref={intersectRef} isDisplayed={hasNextPage}>
@@ -52,6 +56,7 @@ const PostList = styled.div`
   display: grid;
   max-width: 800px;
   margin: 0 auto;
+  padding: 30px 0;
 `;
 
 const VisibleCitiesLoading = styled.div<LoadingProps>`
