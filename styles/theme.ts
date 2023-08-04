@@ -1,7 +1,12 @@
 const colors = {
   primary: '#937062',
+  secondary: '#b58a79',
   black: '#000000',
   white: '#ffffff',
+  grey: '#6e6e6e',
+  lightGrey: '#d1d1d1',
+  navy: '#0000aa',
+  red: '#ff0000',
 };
 
 const layouts = {
