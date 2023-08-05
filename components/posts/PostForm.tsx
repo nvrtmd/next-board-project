@@ -71,10 +71,10 @@ const ContentsWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 3rem;
   width: 50%;
   margin: 0 auto;
   max-width: 300px;
