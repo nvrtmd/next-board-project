@@ -35,7 +35,7 @@ export default function PostListPage() {
     <Wrapper>
       <PostList>
         {data?.map((post: Post) => (
-          <Link href={{ pathname: '/posts/[id]', query: { id: post.post_idx } }}>
+          <Link href={{ pathname: '/posts/[postIdx]', query: { postIdx: post.post_idx } }}>
             <PostItem data={post} onClick={() => console.log(123)} key={post.post_idx} />
           </Link>
         ))}
