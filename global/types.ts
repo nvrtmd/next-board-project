@@ -12,3 +12,8 @@ export interface Post {
   comments?: Comment[];
   comments_count?: number;
 }
+
+export interface NewPost {
+  title: string;
+  contents: string;
+}
