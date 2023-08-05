@@ -1,4 +1,4 @@
-import { Post } from '@/global/types';
+import { Post, NewPost } from 'global/types';
 import axios from 'axios';
 
 export const boardApi = {
@@ -18,6 +18,16 @@ export const boardApi = {
     try {
       const postData = await axios.get(`/test/post/${postIdx}`);
       return postData.data.data;
+    } catch {
+      throw {
+        code: 500,
+        message: 'INTERNAL_SERVER_ERROR',
+      };
+    }
+  },
+  createPost: async (data: NewPost) => {
+    try {
+      await axios.post(`/test/post`, data);
     } catch {
       throw {
         code: 500,
