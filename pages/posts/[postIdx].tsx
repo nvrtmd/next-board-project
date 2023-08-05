@@ -30,7 +30,6 @@ export default function PostPage() {
 }
 
 const Wrapper = styled.div`
-  background: red;
   min-height: 100%;
   padding: 50px 30px;
 `;
