@@ -36,4 +36,8 @@ const InputBox = styled.input`
   border: 2px solid ${theme.colors.lightGrey};
   width: 100%;
   font-size: 1.4rem;
+  transition: 0.2s;
+  &:focus {
+    border: 2px solid ${theme.colors.primary};
+  }
 `;
