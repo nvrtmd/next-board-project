@@ -14,4 +14,15 @@ export const boardApi = {
       };
     }
   },
+  getPostData: async (postIdx: string) => {
+    try {
+      const postData = await axios.get(`/test/post/${postIdx}`);
+      return postData.data.data;
+    } catch {
+      throw {
+        code: 500,
+        message: 'INTERNAL_SERVER_ERROR',
+      };
+    }
+  },
 };
