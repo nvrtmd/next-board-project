@@ -6,6 +6,7 @@ import useInfiniteScroll from 'hooks/useInfiniteScroll';
 import PostItem from 'components/posts/PostItem';
 import { useEffect, useRef } from 'react';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import Button from 'components/common/Button';
 
 interface LoadingProps {
   isDisplayed?: boolean;
@@ -33,6 +34,12 @@ export default function PostListPage() {
 
   return (
     <Wrapper>
+      <ButtonWrapper>
+        <Link href="/posts/create">
+          <Button type="button" name="Create Post" isActivated={true} />
+        </Link>
+      </ButtonWrapper>
+
       <PostList>
         {data?.map((post: Post) => (
           <Link href={{ pathname: '/posts/[postIdx]', query: { postIdx: post.post_idx } }}>
@@ -49,6 +56,13 @@ export default function PostListPage() {
 
 const Wrapper = styled.div`
   min-height: 100%;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 20%;
+  min-width: 150px;
+  max-width: 250px;
+  margin: 30px auto 0;
 `;
 
 const PostList = styled.div`
