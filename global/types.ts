@@ -17,3 +17,8 @@ export interface NewPost {
   title: string;
   contents: string;
 }
+
+export interface CustomError {
+  code: string;
+  message: string;
+}
