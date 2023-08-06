@@ -76,15 +76,17 @@ export default function PostPage() {
   return (
     <Wrapper>
       {isModifying ? (
-        <PostForm
-          type="modify"
-          onSubmit={handlePostModify}
-          title={title}
-          contents={contents}
-          onTitleChange={handleTitleChange}
-          onContentsChange={handleContentsChange}
-          onCancelButtonClick={handleCancelButtonClick}
-        />
+        <PostFormWrapper>
+          <PostForm
+            type="modify"
+            onSubmit={handlePostModify}
+            title={title}
+            contents={contents}
+            onTitleChange={handleTitleChange}
+            onContentsChange={handleContentsChange}
+            onCancelButtonClick={handleCancelButtonClick}
+          />
+        </PostFormWrapper>
       ) : (
         <>
           <PostArea data={data} />
@@ -102,7 +104,15 @@ export default function PostPage() {
 
 const Wrapper = styled.div`
   min-height: 100%;
+  display: grid;
   padding: 50px 30px;
+`;
+
+const PostFormWrapper = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
 `;
 
 const ButtonWrapper = styled.div`
