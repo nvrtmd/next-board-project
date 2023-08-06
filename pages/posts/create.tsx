@@ -37,6 +37,7 @@ export default function PostCreatePage() {
     <Wrapper>
       <PostFormWrapper>
         <PostForm
+          type="create"
           onSubmit={handlePostFormSubmit}
           formTitle="- Create Post -"
           title={title}
