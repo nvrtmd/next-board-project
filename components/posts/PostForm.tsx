@@ -5,6 +5,7 @@ import TextArea from 'components/common/TextArea';
 import Button from 'components/common/Button';
 
 interface PostFormProps {
+  type: 'modify' | 'create';
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   formTitle?: string;
   title: string;
@@ -15,6 +16,7 @@ interface PostFormProps {
 }
 
 function PostForm({
+  type,
   onSubmit,
   formTitle,
   title,
@@ -32,7 +34,7 @@ function PostForm({
   const formFooter = useMemo(
     () => (
       <ButtonWrapper>
-        <Button type="submit" isActivated={isSubmittable()} name="Submit" />
+        <Button type="submit" isActivated={isSubmittable()} name={type === 'modify' ? 'Modify' : 'Submit'} />
         <Button type="button" isActivated={true} name="Cancel" onClick={onCancelButtonClick} />
       </ButtonWrapper>
     ),
