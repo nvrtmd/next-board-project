@@ -44,7 +44,6 @@ export default function PostPage() {
         alert('modify!');
         queryClient.invalidateQueries(['postData', postIdx]);
         setIsModifying(false);
-        // router.replace(`/posts/${postIdx}`);
       } catch (err) {
         const error = err as CustomError;
         alert(error.message);
@@ -53,9 +52,23 @@ export default function PostPage() {
     }
   };
 
+  const handleDeleteClick = async () => {
+    try {
+      if (confirm('Delete?')) {
+        await boardApi.deletePost(postIdx);
+        alert('Deleted!');
+        router.replace('/posts/list');
+      } else {
+        return;
+      }
+    } catch (err) {
+      const error = err as CustomError;
+      alert(error.message);
+    }
+  };
+
   const handleCancelButtonClick = () => {
     if (confirm('cancel?')) {
-      // router.replace(`/posts/${postIdx}`);
       setIsModifying(false);
     }
   };
@@ -78,6 +91,7 @@ export default function PostPage() {
           {data?.post_writer.member_id === 'user' && (
             <ButtonWrapper>
               <Button onClick={handleModifyClick} name="Modify" isActivated />
+              <Button onClick={handleDeleteClick} name="Delete" isActivated />
             </ButtonWrapper>
           )}
         </>
@@ -92,6 +106,9 @@ const Wrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   padding: 3rem;
   width: 50%;
   margin: 0 auto;
