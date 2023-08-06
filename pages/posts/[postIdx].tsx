@@ -28,7 +28,7 @@ export default function PostPage() {
     return <div>Invalid post index.</div>;
   }
 
-  const handleEditClick = () => {
+  const handleModifyClick = () => {
     setIsModifying(true);
     setTitle(data.post_title);
     setContents(data.post_contents);
@@ -77,7 +77,7 @@ export default function PostPage() {
           <PostArea data={data} />
           {data?.post_writer.member_id === 'user' && (
             <ButtonWrapper>
-              <Button onClick={handleEditClick} name="Modify" isActivated />
+              <Button onClick={handleModifyClick} name="Modify" isActivated />
             </ButtonWrapper>
           )}
         </>
