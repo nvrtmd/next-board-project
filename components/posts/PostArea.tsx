@@ -46,7 +46,7 @@ const UpdatedDate = styled.div`
 
 const Body = styled.div`
   padding: 1rem 0 2rem;
-  min-height: 20rem;
+  min-height: 350px;
   font-size: 1.55rem;
   line-height: 1.35;
 `;
