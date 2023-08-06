@@ -35,4 +35,14 @@ export const boardApi = {
       };
     }
   },
+  modifyPost: async (postIdx: string, data: NewPost) => {
+    try {
+      await axios.patch(`/test/post/${postIdx}`, data);
+    } catch {
+      throw {
+        code: 500,
+        message: 'INTERNAL_SERVER_ERROR',
+      };
+    }
+  },
 };
