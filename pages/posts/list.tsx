@@ -47,9 +47,9 @@ export default function PostListPage() {
           </Link>
         ))}
       </PostList>
-      <VisibleCitiesLoading ref={intersectRef} isDisplayed={hasNextPage}>
+      <Loading ref={intersectRef} isDisplayed={hasNextPage}>
         LOADING...
-      </VisibleCitiesLoading>
+      </Loading>
     </Wrapper>
   );
 }
@@ -73,7 +73,7 @@ const PostList = styled.div`
   padding: 30px 0;
 `;
 
-const VisibleCitiesLoading = styled.div<LoadingProps>`
+const Loading = styled.div<LoadingProps>`
   ${({ isDisplayed }) =>
     !isDisplayed &&
     `
