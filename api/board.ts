@@ -1,4 +1,4 @@
-import { Post, NewPost } from 'global/types';
+import { Post, NewPost, NewComment } from 'global/types';
 import axios from 'axios';
 
 export const boardApi = {
@@ -48,6 +48,16 @@ export const boardApi = {
   deletePost: async (postIdx: string) => {
     try {
       await axios.delete(`/test/post/${postIdx}`);
+    } catch {
+      throw {
+        code: 500,
+        message: 'INTERNAL_SERVER_ERROR',
+      };
+    }
+  },
+  createComment: async (postIdx: string, data: NewComment) => {
+    try {
+      await axios.post(`/test/post/${postIdx}/comment`, data, { withCredentials: true });
     } catch {
       throw {
         code: 500,
