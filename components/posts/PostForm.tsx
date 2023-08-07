@@ -25,16 +25,14 @@ function PostForm({
   onContentsChange,
   onCancelButtonClick,
 }: PostFormProps) {
-  const isSubmittable = () => {
-    return title.length > 0 && contents.length > 0;
-  };
+  const isSubmittable = title.length > 0 && contents.length > 0;
 
   const formHeader = useMemo(() => <FormTitle>{formTitle}</FormTitle>, []);
 
   const formFooter = useMemo(
     () => (
       <ButtonWrapper>
-        <Button type="submit" isActivated={isSubmittable()} name={type === 'modify' ? 'Modify' : 'Submit'} />
+        <Button type="submit" isActivated={isSubmittable} name={type === 'modify' ? 'Modify' : 'Submit'} />
         <Button type="button" isActivated={true} name="Cancel" onClick={onCancelButtonClick} />
       </ButtonWrapper>
     ),
