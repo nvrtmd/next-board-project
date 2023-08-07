@@ -1,12 +1,15 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
-export const NoComment = () => {
+function NoComment() {
   return (
     <NoCommentWrapper>
       <div>No Comment</div>
     </NoCommentWrapper>
   );
-};
+}
+
+export default memo(NoComment);
 
 const NoCommentWrapper = styled.div`
   display: flex;
