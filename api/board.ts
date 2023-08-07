@@ -75,4 +75,24 @@ export const boardApi = {
       };
     }
   },
+  modifyComment: async (postIdx: string, commentIdx: number, data: NewComment) => {
+    try {
+      await axios.patch(`/test/post/${postIdx}/comment/${commentIdx}`, data, { withCredentials: true });
+    } catch {
+      throw {
+        code: 500,
+        message: 'INTERNAL_SERVER_ERROR',
+      };
+    }
+  },
+  deleteComment: async (postIdx: string, commentIdx: number) => {
+    try {
+      await axios.delete(`/test/post/${postIdx}/comment/${commentIdx}`, { withCredentials: true });
+    } catch {
+      throw {
+        code: 500,
+        message: 'INTERNAL_SERVER_ERROR',
+      };
+    }
+  },
 };
