@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import styled from 'styled-components';
 import TextArea from 'components/common/TextArea';
 import Button from 'components/common/Button';
@@ -17,7 +17,7 @@ interface ButtonWrapperProps {
   type: 'modify' | 'create';
 }
 
-export const CommentForm = ({
+function CommentForm({
   onSubmit,
   onCommentChange,
   comment,
@@ -25,7 +25,7 @@ export const CommentForm = ({
   type,
   onCancelButtonClick,
   isActivated,
-}: CommentFormProps) => {
+}: CommentFormProps) {
   const isSubmittable = comment.length > 0;
 
   const formHeader = useMemo(() => formTitle && <FormTitle>{formTitle}</FormTitle>, []);
@@ -49,11 +49,11 @@ export const CommentForm = ({
       {formFooter}
     </Form>
   );
-};
+}
 
-const Form = styled.form`
-  margin-bottom: 2.5rem;
-`;
+export default memo(CommentForm);
+
+const Form = styled.form``;
 
 const FormTitle = styled.div`
   display: flex;
@@ -74,7 +74,7 @@ const ButtonWrapper = styled.div<ButtonWrapperProps>`
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   `}
-  padding: 3rem;
+  padding: 1rem;
   width: 50%;
   margin: 0 auto;
   max-width: 300px;
