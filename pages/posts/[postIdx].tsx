@@ -69,6 +69,10 @@ export default function PostPage() {
     }
   };
 
+  const handleMoveToListClick = () => {
+    router.push('/posts/list');
+  };
+
   const handleCancelButtonClick = () => {
     if (confirm('cancel?')) {
       setIsModifying(false);
@@ -94,12 +98,15 @@ export default function PostPage() {
           <>
             <PostAreaWrapper>
               <PostArea data={data} />
-              {data?.post_writer.member_id === 'user' && (
-                <ButtonWrapper>
-                  <Button onClick={handleModifyClick} name="Modify" isActivated />
-                  <Button onClick={handleDeleteClick} name="Delete" isActivated />
-                </ButtonWrapper>
-              )}
+              <ButtonWrapper>
+                {data?.post_writer.member_id === 'user' && (
+                  <>
+                    <Button onClick={handleModifyClick} name="Modify" isActivated />
+                    <Button onClick={handleDeleteClick} name="Delete" isActivated />
+                  </>
+                )}
+                <Button onClick={handleMoveToListClick} name="List" isActivated />
+              </ButtonWrapper>
             </PostAreaWrapper>
             <CommentArea currentUserData="user" />
           </>
@@ -128,13 +135,9 @@ const PostFormWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 20px;
   padding: 3rem;
-  width: 50%;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 500px;
 `;
-
-const CommentListBottom = styled.div``;
