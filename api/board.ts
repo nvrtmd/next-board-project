@@ -1,5 +1,6 @@
 import { Post, NewPost, NewComment } from 'global/types';
 import axios from 'axios';
+import { BOARD_ERROR_MESSAGE } from '@/constants/constants';
 
 export const boardApi = {
   getPostList: async (start: number, count: number): Promise<Post[]> => {
@@ -9,7 +10,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_GET_POST_LIST_FROM_SERVER,
       };
     }
   },
@@ -20,7 +21,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_GET_POST_DATA_FROM_SERVER,
       };
     }
   },
@@ -30,7 +31,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_CREATE_POST,
       };
     }
   },
@@ -40,7 +41,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_MODIFY_OR_DELETE_POST,
       };
     }
   },
@@ -50,7 +51,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_MODIFY_OR_DELETE_POST,
       };
     }
   },
@@ -61,7 +62,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_GET_COMMENT_LIST,
       };
     }
   },
@@ -71,7 +72,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_CREATE_COMMENT,
       };
     }
   },
@@ -81,7 +82,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_MODIFY_COMMENT,
       };
     }
   },
@@ -91,7 +92,7 @@ export const boardApi = {
     } catch {
       throw {
         code: 500,
-        message: 'INTERNAL_SERVER_ERROR',
+        message: BOARD_ERROR_MESSAGE.CANNOT_DELETE_COMMENT,
       };
     }
   },
