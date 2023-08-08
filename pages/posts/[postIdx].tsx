@@ -8,9 +8,8 @@ import { useState } from 'react';
 import PostForm from 'components/posts/PostForm';
 import { CustomError } from 'global/types';
 import Button from 'components/common/Button';
-import { CommentForm } from 'components/posts/CommentForm';
 import { theme } from 'styles/theme';
-import { NoComment } from '@/components/posts/NoComment';
+import CommentArea from 'components/posts/CommentArea';
 
 export default function PostPage() {
   const router = useRouter();
@@ -18,7 +17,6 @@ export default function PostPage() {
   const queryClient = useQueryClient();
   const { inputValue: title, handleInputChange: handleTitleChange, setInputValue: setTitle } = useInput('');
   const { inputValue: contents, handleInputChange: handleContentsChange, setInputValue: setContents } = useInput('');
-  const { inputValue: comment, handleInputChange: handleCommentChange } = useInput('');
   const [isModifying, setIsModifying] = useState(false);
   const { data, isLoading } = useQuery(['postData', postIdx], () => boardApi.getPostData(postIdx), {
     refetchOnWindowFocus: false,
@@ -77,23 +75,6 @@ export default function PostPage() {
     }
   };
 
-  const handleCommentFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      if (comment.length <= 0) {
-        alert('Empty!');
-        return;
-      }
-      if (postIdx) {
-        await boardApi.createComment(postIdx, { contents: comment });
-      }
-    } catch (err) {
-      const error = err as CustomError;
-      alert(error.message);
-      return;
-    }
-  };
-
   return (
     <Wrapper>
       {isModifying ? (
@@ -109,24 +90,20 @@ export default function PostPage() {
           />
         </PostFormWrapper>
       ) : (
-        <>
-          <PostAreaWrapper>
-            <PostArea data={data} />
-            {data?.post_writer.member_id === 'user' && (
-              <ButtonWrapper>
-                <Button onClick={handleModifyClick} name="Modify" isActivated />
-                <Button onClick={handleDeleteClick} name="Delete" isActivated />
-              </ButtonWrapper>
-            )}
-          </PostAreaWrapper>
-          <CommentForm
-            type="modify"
-            onSubmit={handleCommentFormSubmit}
-            comment={comment}
-            onCommentChange={handleCommentChange}
-            isActivated={comment.length > 0}
-          />
-        </>
+        data && (
+          <>
+            <PostAreaWrapper>
+              <PostArea data={data} />
+              {data?.post_writer.member_id === 'user' && (
+                <ButtonWrapper>
+                  <Button onClick={handleModifyClick} name="Modify" isActivated />
+                  <Button onClick={handleDeleteClick} name="Delete" isActivated />
+                </ButtonWrapper>
+              )}
+            </PostAreaWrapper>
+            <CommentArea currentUserData="user" />
+          </>
+        )
       )}
     </Wrapper>
   );
@@ -159,3 +136,5 @@ const ButtonWrapper = styled.div`
   margin: 0 auto;
   max-width: 300px;
 `;
+
+const CommentListBottom = styled.div``;
