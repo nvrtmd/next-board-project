@@ -1,12 +1,12 @@
-# 🌞 Next.js Board Web Service
+# Next.js Board Web Service
 
-## ⛈ Preview
+## Preview
 
-![preview](https://github.com/nvrtmd/weather-app/assets/67324487/181a35a3-aed9-4c9b-988b-c8f50271854e)
+![preview](https://github.com/nvrtmd/next-board-project/assets/67324487/c5125e70-08be-4643-8758-751951b29015)
 
 <br/>
 
-## 🌧 구현 사항
+## 구현 사항
 
 1. 게시글 목록 페이지
    - 서버의 db에서 불러온 게시글 리스트를 화면에 출력합니다.
@@ -25,7 +25,7 @@
 
 <br>
 
-## 🌈 폴더 구조
+## 폴더 구조
 
 ```markdown
 📦src
@@ -46,7 +46,7 @@
 ```
 <br>
 
-## ⛅ 실행 방법
+## 실행 방법
 
 ```bash
 # install dependencies
@@ -56,7 +56,7 @@ $ yarn run dev
 ```
 <br/>
 
-## 🌤 환경 변수
+## 환경 변수
 - 최상단에 위치한 .env file에 환경 변수 선언
 ```bash
 NEXT_PUBLIC_API_URL=https://port-0-node-membership-board-luj2cldvrt49y.sel3.cloudtype.app
@@ -64,7 +64,7 @@ NEXT_PUBLIC_API_URL=https://port-0-node-membership-board-luj2cldvrt49y.sel3.clou
 
 <br/>
 
-## ☀ 과제 진행 세부 사항
+## 과제 진행 세부 사항
 
 ### 컴포넌트 분리 기준
 
